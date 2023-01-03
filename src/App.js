@@ -8,7 +8,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Products />} />
+          <Route path="/" element={<Products />} index/>
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>
