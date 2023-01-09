@@ -20,7 +20,7 @@ const cartSlice = createSlice({
         (item) => item.id === action.payload.id
       );
       state[itemIndex].qty -= 1;
-      console.log(itemIndex);
+      // console.log(itemIndex);
     },
   },
 });

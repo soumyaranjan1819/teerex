@@ -9,7 +9,7 @@ const ProductCard = ({ item }) => {
     dispatch(add(item));
   };
 
-  console.log(cart);
+  // console.log(cart);
   return (
     <div className=" min-w-[190px]  py-3 px-3 bg-slate-200 rounded">
       <img
