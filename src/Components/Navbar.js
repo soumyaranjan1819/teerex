@@ -7,7 +7,9 @@ const Navbar = () => {
   const items = useSelector((state) => state.cart);
   return (
     <div className=" flex justify-between bg-slate-500 px-20 py-3 text-white">
-      <Link to={'/'} className="text-4xl font-semibold">TeeRex</Link>
+      <Link to={"/"} className="text-4xl font-semibold">
+        TeeRex
+      </Link>
       <div className="flex gap-8 items-center">
         <NavLink to={"/"} className="text-xl">
           Products
