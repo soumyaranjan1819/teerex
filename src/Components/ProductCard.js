@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { add } from "../Store/cartSlice";
+import { BiRupee } from "react-icons/bi";
 
 const ProductCard = ({ item }) => {
   const dispatch = useDispatch();
@@ -19,14 +20,14 @@ const ProductCard = ({ item }) => {
       />
       <p className="mt-1">{item.name}</p>
       <div className="flex justify-between mt-2">
-        <span className=" font-semibold text-lg">Rs {item.price}</span>
-        <span className="text-sm py-1 px-2 rounded bg-black text-white cursor-pointer">
+        <span className="flex items-center font-semibold text-lg"><BiRupee/> {item.price}</span>
+        <span className="text-sm font-medium cursor-pointer">
           {cart.some((i) => item.id === i.id) ? (
-            <span className="flex gap-4 font-medium">
+            <span className="py-1 px-2 rounded bg-sky-600 text-white">
               <Link to={"/cart"}>Go to Cart</Link>
             </span>
           ) : (
-            <span onClick={() => handleAdd(item)}>Add to cart</span>
+            <span className="py-1 px-2 rounded bg-orange-600 text-white" onClick={() => handleAdd(item)}>Add to Cart</span>
           )}
         </span>
       </div>

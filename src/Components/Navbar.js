@@ -14,10 +14,10 @@ const Navbar = () => {
         <NavLink to={"/"} className="text-xl">
           Products
         </NavLink>
-        <Link to={"/cart"} className="flex text-4xl font-medium relative">
+        <Link to={"/cart"} className="flex text-[2rem] font-medium relative">
           <FaShoppingCart />
           {items.length > 0 ? (
-            <span className=" text-sm text-white bg-orange-600 px-1.5 rounded-full font-semibold absolute left-[55%] top-[-32%] ">
+            <span className=" text-sm text-white bg-orange-600 px-1.5 pb-0.5 rounded-full font-semibold absolute left-[55%] top-[-32%] ">
               {items.length}
             </span>
           ) : (

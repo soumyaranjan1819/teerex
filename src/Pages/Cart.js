@@ -35,10 +35,10 @@ const Cart = () => {
   };
 
   return (
-    <div className="flex">
-      <div className="md:w-[75vw] md:border-r-2 ">
+    <div className="md:flex">
+      <div className="md:w-[75vw] md:border-r-2 ml-5">
         <h3 className="text-2xl font-semibold mb-4">Cart</h3>
-        <div className=" flex flex-wrap gap-5 ">
+        <div className=" flex flex-wrap gap-5">
           {productsInCart &&
             productsInCart.map((p) => (
               <div
@@ -83,18 +83,24 @@ const Cart = () => {
             ))}
         </div>
       </div>
-      <section className=" md:w-[25vw] bg-slate-300 ">
+      <section className="md:w-[30vw] lg:w-[25vw] bg-slate-300 py-3 md:pt-0 mt-5 md:mt-0">
         <h3 className=" text-xl font-semibold text-gray-700 ml-5 my-2.5 tracking-wide ">
           PRICE DETAILS
         </h3>
         <hr />
         <div className="px-7 ">
           <div className="flex flex-col gap-2 my-2">
-            <p className="flex justify-between">Items : <span>{productsInCart.length}</span></p>
-            <p className="flex justify-between">Quantity : <span>{totalCartItems}</span></p>
+            <p className="flex justify-between">
+              Items : <span>{productsInCart.length}</span>
+            </p>
+            <p className="flex justify-between">
+              Quantity : <span>{totalCartItems}</span>
+            </p>
           </div>
           <hr />
-            <p className="my-3 font-semibold text-2xl flex justify-between"><span>Total Price :</span> <span>{totalCartPrice}</span></p>
+          <p className="my-3 font-semibold text-xl lg:text-2xl flex justify-between">
+            <span>Total Price :</span> <span>{totalCartPrice}</span>
+          </p>
         </div>
       </section>
     </div>
