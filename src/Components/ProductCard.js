@@ -11,16 +11,15 @@ const ProductCard = ({ item }) => {
   };
 
   return (
-    <div className=" min-w-[180px] p-1 bg-slate-200 rounded">
+    <div className=" min-w-[176px] bg-slate-200 rounded">
       <img
         src={item.imageURL}
         alt={item.name}
-        className=" w-[11rem] h-[11rem] "
+        className=" w-[11rem] h-[11rem] p-1.5"
       />
-      <p className="mt-1">{item.name}</p>
-      <div className="flex justify-between mt-2">
+      <p className="px-1.5">{item.name}</p>
+      {/* <div className="flex justify-between mt-2">
         <span className="flex items-center font-semibold text-lg">
-          {" "}
           <BiRupee /> {item.price}
         </span>
         <span className="text-sm font-medium cursor-pointer">
@@ -31,6 +30,25 @@ const ProductCard = ({ item }) => {
           ) : (
             <span
               className="py-1 px-2 rounded bg-orange-600 text-white"
+              onClick={() => handleAdd(item)}
+            >
+              Add to Cart
+            </span>
+          )}
+        </span>
+      </div> */}
+      <div className="flex justify-between py-1">
+        <span className="flex items-center font-semibold text-lg pl-1 ">
+          <BiRupee /> {item.price}
+        </span>
+        <span className="text-sm font-medium cursor-pointer text-white my-1.5 mr-1.5">
+          {cart.some((i) => item.id === i.id) ? (
+            <span className="py-1 px-2 rounded bg-sky-600">
+              <Link to={"/cart"}> Go to Cart </Link>
+            </span>
+          ) : (
+            <span
+              className="py-1 px-2 rounded bg-orange-600"
               onClick={() => handleAdd(item)}
             >
               Add to Cart
