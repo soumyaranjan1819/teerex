@@ -1,25 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { remove, addQuantity, subQuantity } from "../Store/cartSlice";
+import {
+  remove,
+  addQuantity,
+  subQuantity,
+  getCartTotal,
+} from "../Store/cartSlice";
 import { MdDelete } from "react-icons/md";
 import { BiRupee } from "react-icons/bi";
 
 const Cart = () => {
   const dispatch = useDispatch();
 
-  const productsInCart = useSelector((state) => state.cart);
-
-  const totalCartItems = productsInCart.reduce(
-    (acc, curr) => acc + curr.qty,
-    0
-  );
-  const totalCartPrice = productsInCart.reduce(
-    (acc, curr) => acc + curr.qty * curr.price,
-    0
+  const { cartData, totalQuantity, totalPrice } = useSelector(
+    (state) => state.cart
   );
 
-  const handleRemove = (productId) => {
-    dispatch(remove(productId));
+  useEffect(() => {
+    dispatch(getCartTotal());
+  });
+
+  const handleRemove = (product) => {
+    dispatch(remove(product));
   };
 
   const handleSubtractQuantity = (product) => {
@@ -39,8 +41,8 @@ const Cart = () => {
       <div className="md:w-[75vw] md:border-r-2 ml-5">
         <h3 className="text-2xl font-semibold mb-4">Cart</h3>
         <div className=" flex flex-wrap gap-5">
-          {productsInCart &&
-            productsInCart.map((p) => (
+          {cartData &&
+            cartData.map((p) => (
               <div
                 className=" w-[190px]  py-3 px-3 bg-slate-200 rounded"
                 key={p.id}
@@ -63,7 +65,7 @@ const Cart = () => {
                       -
                     </span>
                     <span className="py-0.5 pb-1 pr-1.5 pl-2.5 mx-2 rounded text-white bg-black">
-                      {p.qty}{" "}
+                      {p.qty}
                     </span>
                     <span
                       className=" cursor-pointer text-lg px-1 pb-1 rounded-full text-white bg-black"
@@ -74,7 +76,7 @@ const Cart = () => {
                   </span>
                   <span
                     className="text-2xl py-1 px-2  text-red-600 cursor-pointer"
-                    onClick={() => handleRemove(p.id)}
+                    onClick={() => handleRemove(p)}
                   >
                     <MdDelete />
                   </span>
@@ -91,15 +93,15 @@ const Cart = () => {
         <div className="px-7 ">
           <div className="flex flex-col gap-2 my-2">
             <p className="flex justify-between">
-              Items : <span>{productsInCart.length}</span>
+              Items : <span>{cartData.length}</span>
             </p>
             <p className="flex justify-between">
-              Quantity : <span>{totalCartItems}</span>
+              Quantity : <span>{totalQuantity}</span>
             </p>
           </div>
           <hr />
           <p className="my-3 font-semibold text-xl lg:text-2xl flex justify-between">
-            <span>Total Price :</span> <span>{totalCartPrice}</span>
+            <span>Total Price :</span> <span>{totalPrice}</span>
           </p>
         </div>
       </section>

@@ -5,14 +5,13 @@ import { BiRupee } from "react-icons/bi";
 
 const ProductCard = ({ item }) => {
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.cart.cartData);
   const handleAdd = (item) => {
     dispatch(add(item));
   };
 
-  // console.log(cart);
   return (
-    <div className=" min-w-[190px]  py-3 px-3 bg-slate-200 rounded">
+    <div className=" min-w-[180px] p-1 bg-slate-200 rounded">
       <img
         src={item.imageURL}
         alt={item.name}
@@ -20,14 +19,22 @@ const ProductCard = ({ item }) => {
       />
       <p className="mt-1">{item.name}</p>
       <div className="flex justify-between mt-2">
-        <span className="flex items-center font-semibold text-lg"><BiRupee/> {item.price}</span>
+        <span className="flex items-center font-semibold text-lg">
+          {" "}
+          <BiRupee /> {item.price}
+        </span>
         <span className="text-sm font-medium cursor-pointer">
           {cart.some((i) => item.id === i.id) ? (
             <span className="py-1 px-2 rounded bg-sky-600 text-white">
               <Link to={"/cart"}>Go to Cart</Link>
             </span>
           ) : (
-            <span className="py-1 px-2 rounded bg-orange-600 text-white" onClick={() => handleAdd(item)}>Add to Cart</span>
+            <span
+              className="py-1 px-2 rounded bg-orange-600 text-white"
+              onClick={() => handleAdd(item)}
+            >
+              Add to Cart
+            </span>
           )}
         </span>
       </div>
