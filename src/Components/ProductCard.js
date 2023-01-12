@@ -11,7 +11,7 @@ const ProductCard = ({ item }) => {
   };
 
   return (
-    <div className=" sm:min-w-[176px] bg-slate-200 rounded">
+<div className=" sm:min-w-[176px] bg-slate-200 rounded">
       <img
         src={item.imageURL}
         alt={item.name}

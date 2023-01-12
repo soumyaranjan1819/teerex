@@ -11,7 +11,7 @@ const Navbar = () => {
   });
   const { totalQuantity } = useSelector((state) => state.cart);
   return (
-    <Navbar className="flex justify-between bg-slate-500 px-4 sm:px-20 py-3 text-white">
+    <nav className=" flex justify-between bg-slate-500 px-4 sm:px-20 py-3 text-white">
       <Link to={"/"} className=" text-3xl lg:text-4xl font-semibold">
         TeeRex
       </Link>
@@ -30,7 +30,7 @@ const Navbar = () => {
           )}
         </Link>
       </div>
-    </Navbar>
+    </nav>
   );
 };
 
