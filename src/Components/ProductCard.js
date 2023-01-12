@@ -11,11 +11,11 @@ const ProductCard = ({ item }) => {
   };
 
   return (
-    <div className=" min-w-[176px] bg-slate-200 rounded">
+    <div className=" sm:min-w-[176px] bg-slate-200 rounded">
       <img
         src={item.imageURL}
         alt={item.name}
-        className=" w-[11rem] h-[11rem] p-1.5"
+        className=" w-[11rem] p-1.5"
       />
       <p className="px-1.5">{item.name}</p>
       <div className="flex justify-between py-1">

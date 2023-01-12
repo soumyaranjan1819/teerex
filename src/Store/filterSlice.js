@@ -1,13 +1,20 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
 
-initialState = {
-    originalData : [''],
-    filteredData : []
-}
+const initialState = {
+  filteredData: [],
+};
 
 const filterSlice = createSlice({
-    name : "data",
-    initialState,
-    reducers:{
-    }
-})
+  name: "data",
+  initialState,
+  reducers: {
+    sort: (state, action) => {
+      action.payload === 0
+        ? (state.filteredData = state.filteredData.sort((a, b) => a - b))
+        : (state.filteredData = state.filteredData.sort((a, b) => b - a));
+    },
+  },
+});
+
+export const { sort } = filterSlice.actions;
+export default filterSlice.reducer;
