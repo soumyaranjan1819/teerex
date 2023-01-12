@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import ProductCard from "../Components/ProductCard";
 import axios from "axios";
 
-
 const API =
   " https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/catalogue.json ";
 
@@ -19,6 +18,12 @@ const Products = () => {
   useEffect(() => {
     getProducts(API);
   }, []);
+
+  // const getFilteredData = () => {
+  //   const response = data.filter((item) => item.color === "black");
+  //   setData(response);
+  //   console.log(response);
+  // };
 
   return (
     <div className="my-8">

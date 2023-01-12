@@ -18,25 +18,6 @@ const ProductCard = ({ item }) => {
         className=" w-[11rem] h-[11rem] p-1.5"
       />
       <p className="px-1.5">{item.name}</p>
-      {/* <div className="flex justify-between mt-2">
-        <span className="flex items-center font-semibold text-lg">
-          <BiRupee /> {item.price}
-        </span>
-        <span className="text-sm font-medium cursor-pointer">
-          {cart.some((i) => item.id === i.id) ? (
-            <span className="py-1 px-2 rounded bg-sky-600 text-white">
-              <Link to={"/cart"}>Go to Cart</Link>
-            </span>
-          ) : (
-            <span
-              className="py-1 px-2 rounded bg-orange-600 text-white"
-              onClick={() => handleAdd(item)}
-            >
-              Add to Cart
-            </span>
-          )}
-        </span>
-      </div> */}
       <div className="flex justify-between py-1">
         <span className="flex items-center font-semibold text-lg pl-1 ">
           <BiRupee /> {item.price}

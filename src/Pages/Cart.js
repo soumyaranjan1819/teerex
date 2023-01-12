@@ -39,13 +39,14 @@ const Cart = () => {
   };
 
   let displayCartDetails = cartData.length ? "block" : "hidden";
+  let displayEmptyCartImg = !(cartData.length) ? "block" : "hidden";
 
   return (
     <>
-      <div className=" flex flex-col items-center mt-14">
-        <img className="w-[360px]" src={emptyCartImg} alt="emptycart" />
+      <div className={`${displayEmptyCartImg} flex flex-col items-center mt-14`}>
+        <img className="w-[60vw] md:w-[360px]" src={emptyCartImg} alt="emptycart" />
         <p className=" text-lg font-medium mb-2">Your cart is empty!</p>
-        <p>Explore our wide selection and find something you like</p>
+        <p className=" hidden sm:block" >Explore our wide selection and find something you like</p>
         <span className=" font-medium mt-5 hover:bg-orange-500 py-1 p-2 rounded bg-orange-400">
           <Link to={"/"}> Shop Now </Link>
         </span>
