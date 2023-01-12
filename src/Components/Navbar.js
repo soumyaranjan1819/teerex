@@ -11,7 +11,7 @@ const Navbar = () => {
   });
   const { totalQuantity } = useSelector((state) => state.cart);
   return (
-    <nav className=" flex justify-between bg-slate-500 px-4 sm:px-20 py-3 text-white">
+    <nav className=" fixed w-[100vw] z-50 flex justify-between bg-slate-500 px-4 sm:px-20 py-3 text-white">
       <Link to={"/"} className=" text-3xl lg:text-4xl font-semibold">
         TeeRex
       </Link>
@@ -19,7 +19,10 @@ const Navbar = () => {
         <NavLink to={"/"} className="text-xl hidden sm:block">
           Products
         </NavLink>
-        <Link to={"/cart"} className="flex text-3xl sm:text-[2rem] font-medium relative">
+        <Link
+          to={"/cart"}
+          className="flex text-3xl sm:text-[2rem] font-medium relative"
+        >
           <FaShoppingCart />
           {totalQuantity > 0 ? (
             <span className=" text-sm text-white bg-orange-600 px-1.5 pb-0.5 rounded-full font-semibold absolute left-[55%] top-[-32%] ">

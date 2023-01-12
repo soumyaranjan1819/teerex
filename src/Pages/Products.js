@@ -26,12 +26,15 @@ const Products = () => {
   // };
 
   return (
-    <div className="my-8">
-      <div className="flex flex-wrap gap-5 justify-center">
+    <div className="flex relative top-16">
+      <aside className="hidden md:block w-[30vw] h-[100vh] bg-slate-300 fixed">
+      </aside>
+
+      <section className="flex flex-wrap gap-5 justify-center w-[70vw] my-7 absolute right-0">
         {data.map((item) => (
           <ProductCard key={item.id} item={item} />
         ))}
-      </div>
+      </section>
     </div>
   );
 };
