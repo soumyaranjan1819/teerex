@@ -43,16 +43,16 @@ const Cart = () => {
 
   return (
     <>
-      <div className={`${displayEmptyCartImg} flex flex-col items-center`}>
+      <section className={`${displayEmptyCartImg} flex flex-col items-center`}>
         <img className="w-[60vw] md:w-[360px] mt-20" src={emptyCartImg} alt="emptycart" />
         <p className=" text-lg font-medium mb-2">Your cart is empty!</p>
         <p className=" hidden sm:block" >Explore our wide selection and find something you like</p>
         <span className=" font-medium mt-5 hover:bg-orange-500 py-1 p-2 rounded bg-orange-400">
           <Link to={"/"}> Shop Now </Link>
         </span>
-      </div>
-      <div className="md:flex">
-        <div className={`${displayCartDetails} md:w-[75vw] ml-5`}>
+      </section>
+      <section className="md:flex">
+        <section className={`${displayCartDetails} md:w-[75vw] ml-5 mt-20`}>
           <h3 className="text-2xl font-semibold mb-4">Cart</h3>
           <div className=" flex flex-wrap gap-5">
             {cartData &&
@@ -98,9 +98,9 @@ const Cart = () => {
                 </div>
               ))}
           </div>
-        </div>
-        <section
-          className={`${displayCartDetails} md:w-[30vw] lg:w-[25vw] bg-slate-300 py-3 md:pt-0 mt-5 md:mt-0`}
+        </section>
+        <aside
+          className={`${displayCartDetails} md:w-[30vw] lg:w-[25vw] bg-slate-300 py-3 md:pt-0 mt-5 md:mt-[60px]`}
         >
           <h3 className=" text-xl font-semibold text-gray-700 ml-5 my-2.5 tracking-wide ">
             PRICE DETAILS
@@ -120,8 +120,8 @@ const Cart = () => {
               <span>Total Price :</span> <span>{totalPrice}</span>
             </p>
           </div>
-        </section>
-      </div>
+        </aside>
+      </section>
     </>
   );
 };
